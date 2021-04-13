@@ -15,3 +15,9 @@ http://localhost:8000
 ```
 
 ## Development annotations 
+
+### Creating Categories
+
+```shell
+php artisan make:model Models/Category --all
+```
