@@ -22,12 +22,6 @@ http://localhost:8000
 php artisan make:model Models/Category --all
 ```
 
-### Creating a seeder
-
-```shell
-php artisan make:seeder CategoriesTableSeeder
-```
-
 ### Migrate
 
 ```shell
