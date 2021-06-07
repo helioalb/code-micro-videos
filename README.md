@@ -51,3 +51,8 @@ php artisan tinker
 \App\Models\Category::all();
 ```
 
+### List routes
+
+```shell
+php artisan route:list
+```
