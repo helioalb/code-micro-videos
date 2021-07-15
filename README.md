@@ -56,3 +56,29 @@ php artisan tinker
 ```shell
 php artisan route:list
 ```
+
+### rerun seed
+
+```shell
+php artisan migrate:refresh --seed
+```
+
+### see register deleted with SoftDeletes
+
+```shell
+php artisan tinker
+
+Category::find(1)->delete();
+
+Category::withTrashed()->find(1);
+```
+
+### generate uuid
+
+```shell
+php artisan tinker
+
+use Ramsey\Uuid\Uuid;
+echo Uuid::uuid4();
+```
+
