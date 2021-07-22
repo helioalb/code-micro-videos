@@ -82,3 +82,32 @@ use Ramsey\Uuid\Uuid;
 echo Uuid::uuid4();
 ```
 
+## Run tests
+
+```shell
+vendor/bin/phpunit
+```
+
+## Create unitary tests to category
+
+```shell
+php artisan make:test CategoryTest --unit
+```
+
+## Test specific class
+
+```shell
+vendor/bin/phpunit --filter CategoryTest
+```
+
+## Test specific class:method
+
+```shell
+vendor/bin/phpunit --filter CategoryTest::testExample
+```
+
+## Test by relative path
+
+```shell
+vendor/bin/phpunit tests/Unit/CategoryTest.php
+```
