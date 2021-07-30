@@ -3,15 +3,12 @@
 namespace Tests\Unit;
 
 use App\Models\Category;
+use App\Models\Genre;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use PHPUnit\Framework\TestCase;
 
 class CategoryTest extends TestCase
 {
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
     public function testFillableAttribute()
     {
         $fillable = ['name', 'description', 'is_active'];
