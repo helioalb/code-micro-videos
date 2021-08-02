@@ -94,6 +94,12 @@ vendor/bin/phpunit
 php artisan make:test CategoryTest --unit
 ```
 
+## Create feature test to category
+
+```shell
+php artisan make:test Models/CategoryTest
+```
+
 ## Test specific class
 
 ```shell
