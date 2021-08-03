@@ -36,6 +36,9 @@ class CategoryTest extends TestCase
         ]);
         $category->refresh();
 
+        $uuidRegex = '/^[a-f\d]{8}(-[a-f\d]{4}){4}[a-f\d]{8}$/i';
+        $this->assertTrue((bool)preg_match($uuidRegex, $category->id));
+
         $this->assertEquals('test1', $category->name);
         $this->assertNull($category->description);
         $this->assertTrue($category->is_active);
@@ -87,5 +90,18 @@ class CategoryTest extends TestCase
         foreach ($data as $key => $value) {
             $this->assertEquals($value, $category->{$key});
         }
+    }
+
+    public function testDelete()
+    {
+        $category = factory(Category::class)->create([
+            'name' => 'serei deletada'
+        ]);
+
+        $this->assertCount(1, Category::all());
+
+        $category->delete();
+
+        $this->assertCount(0, Category::all());
     }
 }
