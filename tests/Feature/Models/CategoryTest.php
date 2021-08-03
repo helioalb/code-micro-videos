@@ -19,12 +19,12 @@ class CategoryTest extends TestCase
         $this->assertCount(1, $categories);
         $categoryKey = array_keys($categories->first()->getAttributes());
         $this->assertEqualsCanonicalizing([
-            'id', 
-            'name', 
-            'description', 
+            'id',
+            'name',
+            'description',
             'is_active',
-            'created_at', 
-            'updated_at', 
+            'created_at',
+            'updated_at',
             'deleted_at'
         ], $categoryKey);
     }
@@ -49,24 +49,43 @@ class CategoryTest extends TestCase
 
         $category = Category::create([
             'name' => 'test1',
-            'description' => 'test_description' 
+            'description' => 'test_description'
         ]);
 
         $this->assertEquals('test_description', $category->description);
 
         $category = Category::create([
             'name' => 'test1',
-            'is_active' => false 
+            'is_active' => false
         ]);
 
         $this->assertFalse($category->is_active);
 
         $category = Category::create([
             'name' => 'test1',
-            'is_active' => true 
+            'is_active' => true
         ]);
 
         $this->assertTrue($category->is_active);
+    }
 
+    public function testUpdate()
+    {
+        $category = factory(Category::class)->create([
+            'description' => 'test_description',
+            'is_active' => false
+        ])->first();
+
+        $data = [
+            'name' => 'test_name_updated',
+            'description' => 'test_description_updated',
+            'is_active' => true
+        ];
+
+        $category->update($data);
+
+        foreach ($data as $key => $value) {
+            $this->assertEquals($value, $category->{$key});
+        }
     }
 }
